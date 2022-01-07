@@ -1,3 +1,4 @@
+/dist
 
 # Created by https://www.toptal.com/developers/gitignore/api/windows,macos,linux,intellij+iml,node,visualstudiocode
 # Edit at https://www.toptal.com/developers/gitignore?templates=windows,macos,linux,intellij+iml,node,visualstudiocode
@@ -225,7 +226,6 @@ out
 
 # Nuxt.js build / generate output
 .nuxt
-dist
 
 # Gatsby files
 .cache/

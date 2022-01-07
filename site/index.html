@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<title>Furigana Annotations</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css"
+      integrity="sha512-IgmDkwzs96t4SrChW29No3NXBIBv8baW490zk5aXvhCD8vuZM3yUSkbyTBcXohkySecyzIrUwiF/qV0cuPcL3Q=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer" />
+
+<style>
+    #content {
+        padding-top: 50px;
+    }
+
+    .sentence {
+        margin-top: 20px;
+        font-size: 2em;
+    }
+
+    .sentence-example-description {
+        font-size: 1.5em;
+    }
+
+    .sentence-code-box {
+        margin-top: 10px;
+    }
+
+    .sentence-example {
+        font-size: 1.5em;
+        padding: 20px;
+        color: white;
+        background: black;
+    }
+
+    .pitch-up {
+        border-left: 2px solid red;
+        border-top: 2px solid red;
+    }
+
+    .pitch-down {
+        border-right: 2px solid red;
+        border-top: 2px solid red;
+    }
+
+</style>
+
+<section class="hero is-medium is-link">
+    <div class="hero-body">
+        <div class="container">
+            <h1 class="title">
+                Furigana Annotations
+            </h1>
+            <h2 class="subtitle">
+                Library to provide an improved way to do furigana annotations.
+            </h2>
+        </div>
+    </div>
+</section>
+
+<section id="content">
+    <div class="container">
+        <h3 class="title">Examples</h3>
+
+        <div class="columns is-multiline">
+            <div class="column is-half">
+                <div class="sentence-example-description">
+                    Very basic word annotation.
+                </div>
+
+                <div class="sentence">
+                    猫[ねこ]
+                </div>
+
+                <div class="panel is-link sentence-code-box">
+                    <p class="panel-heading">Code</p>
+                    <div class="panel-block sentence-example">
+                        猫[ねこ]
+                    </div>
+                </div>
+            </div>
+
+            <div class="column is-half">
+                <div class="sentence-example-description">
+                    You can ignore characters!
+                </div>
+
+                <div class="sentence">
+                    役に立つ[やく_た_]
+                </div>
+
+                <div class="panel is-link sentence-code-box">
+                    <p class="panel-heading">Code</p>
+                    <div class="panel-block sentence-example">
+                        役に立つ[やく_た_]
+                    </div>
+                </div>
+            </div>
+
+            <div class="column is-half">
+                <div class="sentence-example-description">
+                    Example with pitch accent!
+                </div>
+
+                <div class="sentence render-pitch">
+                    相槌[あ/いづ\\ち]
+                </div>
+
+                <div class="panel is-link sentence-code-box">
+                    <p class="panel-heading">Code</p>
+                    <div class="panel-block sentence-example">
+                        相槌[あ/いづ\\ち]
+                    </div>
+                </div>
+            </div>
+
+            <div class="column is-half">
+                <div class="sentence-example-description">
+                    An example using an entire sentence.
+                </div>
+
+                <div class="sentence">
+                    我輩[わ/がはい]は|猫[ね\こ]である
+                </div>
+
+                <div class="panel is-link sentence-code-box">
+                    <p class="panel-heading">Code</p>
+                    <div class="panel-block sentence-example">
+                        我輩[わ/がはい]は|猫[ね\こ]である
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"
+        integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer">
+</script>
+<script src="index.js"></script>
+<script data-main="scripts/main">
+    window.addEventListener("load", () => {
+        const parser = new FuriganaParser();
+
+        document.querySelectorAll(".sentence").forEach(elem => {
+            const text = elem.textContent.trim();
+            elem.innerHTML = elem.classList.contains("render-pitch") ?
+                parser.renderPitchAccent(text) :
+                parser.render(text);
+        });
+    })
+</script>

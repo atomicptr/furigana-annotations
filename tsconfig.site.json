@@ -1,0 +1,9 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "target": "es5",
+    "module": "none",
+    "outFile": "./site/index.js",
+    "declaration": false
+  }
+}
