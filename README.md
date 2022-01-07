@@ -28,7 +28,7 @@ as you can see this library keeps the word together and instead of splitting the
 
 ## How to use with Anki
 
-1. Copy the content from https://raw.githubusercontent.com/atomicptr/furigana-annotations/master/site/index.js
+1. Copy the content from https://raw.githubusercontent.com/atomicptr/furigana-annotations/master/docs/index.js
 2. Put it into a script tag on your card template
 3. Add the following snippet to your code:
 

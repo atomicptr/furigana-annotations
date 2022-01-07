@@ -3,7 +3,7 @@
   "compilerOptions": {
     "target": "es5",
     "module": "none",
-    "outFile": "./site/index.js",
+    "outFile": "./docs/index.js",
     "declaration": false
   }
 }
